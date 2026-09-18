@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Если запрошен реальный файл — отдаём его как есть (css, js, картинки)
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Если запрошена реальная папка — отдаём её
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Всё остальное — в index.php
+RewriteRule ^ index.php [QSA,L]
